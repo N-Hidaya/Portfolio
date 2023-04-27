@@ -1,6 +1,6 @@
 import { Link } from "gatsby-link";
 import React, {useState, useEffect} from "react";
-import WeatherCard from "./Weather";
+import WeatherCard from "./components/Weather";
 
 export default function WeatherApp() {
     const [latitude, setLat] = useState([])
