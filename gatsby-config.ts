@@ -18,6 +18,9 @@ const config: GatsbyConfig = {
     author: `@lekoarts_de`,
   },
   trailingSlash: `never`,
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-cara`,
