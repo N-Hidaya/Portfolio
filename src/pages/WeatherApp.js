@@ -28,7 +28,12 @@ export default function WeatherApp() {
         <div className="WeatherApp">
             <Link to="/">Home Page</Link>
 
+            {(typeof data.main != 'undefined') ? (
             <WeatherCard weatherData={data}/>
+
+            ): (
+                <div></div>
+            )}
         </div>
     )
 }
