@@ -1,5 +1,10 @@
+
 import type { GatsbyConfig, PluginRef } from "gatsby"
-import "dotenv/config"
+import { resolve } from 'path';
+
+//import "dotenv/config"
+
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}`});
 
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
@@ -8,14 +13,14 @@ const config: GatsbyConfig = {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-cara/gatsby-config.mjs
-    siteTitle: `Cara`,
-    siteTitleAlt: `Cara - Gatsby Starter Portfolio`,
-    siteHeadline: `Cara - Gatsby Theme from @lekoarts`,
+    siteTitle: `Daya`,
+    siteTitleAlt: `Daya's Portfolio`,
+    siteHeadline: `Welcome to Daya projects`,
     siteUrl: `https://cara.lekoarts.de`,
-    siteDescription: `Playful and Colorful One-Page portfolio featuring Parallax effects and animations`,
+    siteDescription: `Portfolio featuring colorful effects and several widgets`,
     siteImage: `/banner.jpg`,
     siteLanguage: `en`,
-    author: `@lekoarts_de`,
+    author: `@daya`,
   },
   trailingSlash: `never`,
   flags: {
@@ -26,6 +31,12 @@ const config: GatsbyConfig = {
       resolve: `@lekoarts/gatsby-theme-cara`,
       // See the theme's README for all available options
       options: {},
+    },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["GATSBY_APP_API_URL", "GATSBY_APP_API_KEY", "GATSBY_APP_ICON_URL"]
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
